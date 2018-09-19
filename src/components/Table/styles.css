@@ -1,0 +1,10 @@
+table th:nth-child(n+3) {
+    text-align: right
+}
+table tfoot td:nth-child(1) {
+    vertical-align: bottom;
+}
+table tfoot td:nth-child(2) {
+    font-size: 1.25rem;
+    font-weight: bold;
+}

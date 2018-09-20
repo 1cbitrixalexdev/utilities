@@ -35,7 +35,7 @@ export default class Row extends Component {
         return (
             <tr>
                 <td>{row.service}</td>
-                <td>{row.price}</td>
+                <td title="Клікніть для редагування">{row.price}</td>
                 <td>{cellCurrent}</td>
                 <td>{cellPrevious}</td>
                 <td>{cellUsed}</td>

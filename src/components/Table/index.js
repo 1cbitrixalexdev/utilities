@@ -4,7 +4,7 @@
 import React, {Component} from "react";
 import Row from "./Row/index";
 import PropTypes from "prop-types";
-import './styles.css';
+import "./styles.css";
 
 export default class Table extends Component {
 
@@ -13,7 +13,13 @@ export default class Table extends Component {
         this.state = {
             tableData: this.props.tableData
         };
-        this.handleChange = this.handleChange.bind(this)
+        this.defaults = this.state;
+        this.handleChange = this.handleChange.bind(this);
+        this.resetToDefaults = this.resetToDefaults.bind(this);
+    }
+
+    resetToDefaults = () => {
+        this.setState(this.defaults)
     }
 
     handleChange = (index, item, val) => {
@@ -40,25 +46,31 @@ export default class Table extends Component {
             const myItem = this.props.tableConfig.tableHeaders[key];
             return <th key={index}>{myItem}</th>
         });
-        const rows = this.props.tableData.map( (row, i) => <Row key={i} row={row} tableData={this.state.tableData[i]} dataNum={i} followChanges={this.handleChange} />);
+        const rows = this.props.tableData.map((row, i) => <Row key={i} row={row} tableData={this.state.tableData[i]} dataNum={i} followChanges={this.handleChange}/>);
 
         return (
-            <table className="table table-striped">
-                <thead>
-                <tr>
-                    {tableHeaders}
-                </tr>
-                </thead>
-                <tbody>
+            <div className="table-responsive">
+                <table className="table table-striped">
+                    <thead>
+                    <tr>
+                        {tableHeaders}
+                    </tr>
+                    </thead>
+                    <tbody>
                     {rows}
-                </tbody>
-                <tfoot>
-                <tr>
-                    <td colSpan="5" className="text-right"><b>Всього</b>:</td>
-                    <td>{this.countTotal()}</td>
-                </tr>
-                </tfoot>
-            </table>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colSpan="5" className="text-right"><b>Всього</b>:</td>
+                        <td>{this.countTotal()}</td>
+                    </tr>
+                    </tfoot>
+                </table>
+                <div className="text-right">
+                    <button onClick={this.resetToDefaults} className="btn btn-secondary mr-1">Скинути</button>
+                    <button className="btn btn-warning">Очитити</button>
+                </div>
+            </div>
         );
     }
 }
@@ -68,3 +80,4 @@ Row.propTypes = {
     dataNum: PropTypes.number,
     followChanges: PropTypes.func.isRequired
 };
+

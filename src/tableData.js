@@ -28,7 +28,7 @@ export default [
         current: 748,
         previous: 740,
         used() {
-            return (this.current > this.previous && this.previous > 0) ? this.current - this.previous : 0
+            return ((this.current > this.previous) && (this.previous > 0)) ? this.current - this.previous : 0
         },
         rowTotal() {
             return ((this.price > 0) && (this.price > 0)) ? (this.price * this.used()).toFixed(2) : 0

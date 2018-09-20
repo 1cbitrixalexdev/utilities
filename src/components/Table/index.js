@@ -22,6 +22,20 @@ export default class Table extends Component {
         this.setState(this.defaults)
     }
 
+    clearFields = () => {
+        const tempArray = this.state.tableData;
+        tempArray.forEach((item, index) => {
+            if (item.current) item.current = 0;
+            if (item.previous) item.previous = 0;
+            if (typeof item.used === 'number') item.used = 0;
+            //console.log(typeof item.used)
+        });
+        this.setState({
+            tableData: tempArray
+        });
+        console.log(tempArray);
+    }
+
     handleChange = (index, item, val) => {
         this.setState({
             tableData: this.state.tableData.map((row, i) => (
@@ -41,7 +55,6 @@ export default class Table extends Component {
     };
 
     render() {
-
         const tableHeaders = Object.keys(this.props.tableConfig.tableHeaders).map((key, index) => {
             const myItem = this.props.tableConfig.tableHeaders[key];
             return <th key={index}>{myItem}</th>
@@ -49,7 +62,7 @@ export default class Table extends Component {
         const rows = this.props.tableData.map((row, i) => <Row key={i} row={row} tableData={this.state.tableData[i]} dataNum={i} followChanges={this.handleChange}/>);
 
         return (
-            <div className="table-responsive">
+            <div id="dataSheet" className="table-responsive">
                 <table className="table table-striped">
                     <thead>
                     <tr>
@@ -68,7 +81,7 @@ export default class Table extends Component {
                 </table>
                 <div className="text-right">
                     <button onClick={this.resetToDefaults} className="btn btn-secondary mr-1">Скинути</button>
-                    <button className="btn btn-warning">Очитити</button>
+                    <button onClick={this.clearFields} className="btn btn-warning">Очитити</button>
                 </div>
             </div>
         );

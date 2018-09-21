@@ -1,3 +1,6 @@
+.table {
+    background-color: #fff;
+}
 table th:nth-child(n+3) {
     text-align: right
 }
@@ -8,6 +11,13 @@ table tfoot td:nth-child(2) {
     font-size: 1.25rem;
     font-weight: bold;
 }
+.table td {
+    vertical-align: middle;
+}
 .btn:focus {
     box-shadow: none;
+}
+thead {
+    color: #fff;
+    background-color: #71CFA2;
 }

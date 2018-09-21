@@ -44,6 +44,10 @@ class App extends Component {
                     </div>
                 </div>
                 */}
+                <div id="footer" className="text-muted small">
+                    <p>&copy; &laquo;Комунальний чек&raquo;, версія 1.0 (alpha)</p>
+                    <p>Розроблено: <a href="https://www.alex.kr.ua/dev/">Пономарьов Станіслав</a>, за допомогою <a href="https://reactjs.org" target="_blank" rel="noopener noreferrer">React.js</a> з використанням <a href="https://getbootstrap.com/" target="_blank" rel="noopener noreferrer">Bootstrap</a><br />Якщо ви помітили якусь помилку чи стикнулися із проблемою, обраховуючи результати, будь ласка, зверніться на мою пошту <a href="mailto:ponomaryov.stas@gmail.com" rel="noopener noreferrer">ponomaryov.stas@gmail.com</a></p>
+                </div>
             </div>
         );
     }

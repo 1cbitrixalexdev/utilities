@@ -66,7 +66,7 @@ export default [
         previous: "",
         used: 46.39,
         rowTotal() {
-            return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0
+            return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0.00
         }
     },
     {
@@ -77,18 +77,18 @@ export default [
         previous: "",
         used: 1,
         rowTotal() {
-            return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0
+            return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0.00
         }
     },
     {
         id: "phone",
         service: "Телефон",
-        price: 12,
+        price: 12.00,
         current: "",
         previous: "",
         used: 1,
         rowTotal() {
-            return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0
+            return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0.00
         }
     }
 ]

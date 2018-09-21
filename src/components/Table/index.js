@@ -15,7 +15,6 @@ export default class Table extends Component {
             tableData: this.props.tableData
         };
         this.defaultData = startData;
-        //console.log("Start", this.defaultData);
         this.handleChange = this.handleChange.bind(this);
         this.resetToDefaults = this.resetToDefaults.bind(this);
         this.clearFields = this.clearFields.bind(this);
@@ -79,7 +78,7 @@ export default class Table extends Component {
                 </table>
                 <div className="text-right">
                     <button onClick={this.resetToDefaults} className="btn btn-secondary mr-1">Скинути</button>
-                    <button onClick={this.clearFields} className="btn btn-warning">Очитити</button>
+                    <button onClick={this.clearFields} className="btn btn-warning">Очистити</button>
                 </div>
             </div>
         );

@@ -13,3 +13,10 @@ h2 {
 #changeElectricityTariff {
     display: none
 }
+#footer a {
+    color: #6c757d;
+    text-decoration: underline;
+}
+#footer a:hover {
+    text-decoration: none;
+}

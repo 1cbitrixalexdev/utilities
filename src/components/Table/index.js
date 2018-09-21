@@ -3,6 +3,7 @@
  */
 import React, {Component} from "react";
 import Row from "./Row/index";
+import startData from "../../tableData.js";
 import PropTypes from "prop-types";
 import "./styles.css";
 
@@ -13,33 +14,31 @@ export default class Table extends Component {
         this.state = {
             tableData: this.props.tableData
         };
-        this.defaults = this.state;
+        this.defaultData = startData;
+        //console.log("Start", this.defaultData);
         this.handleChange = this.handleChange.bind(this);
         this.resetToDefaults = this.resetToDefaults.bind(this);
+        this.clearFields = this.clearFields.bind(this);
     }
 
     resetToDefaults = () => {
-        this.setState(this.defaults)
+        this.setState({tableData:this.defaultData});
     }
 
     clearFields = () => {
-        const tempArray = this.state.tableData;
+        let tempArray = [...this.state.tableData];
         tempArray.forEach((item, index) => {
-            if (item.current) item.current = 0;
-            if (item.previous) item.previous = 0;
-            if (typeof item.used === 'number') item.used = 0;
-            //console.log(typeof item.used)
+            if (item.current) tempArray[index] = {...tempArray[index], 'current': 0};
+            if (item.previous) tempArray[index] = {...tempArray[index], 'previous': 0};
+            if (typeof item.used === 'number') tempArray[index] = {...tempArray[index], 'used': 0};
         });
-        this.setState({
-            tableData: tempArray
-        });
-        console.log(tempArray);
+        this.setState({ tableData: tempArray });
     }
 
     handleChange = (index, item, val) => {
         this.setState({
             tableData: this.state.tableData.map((row, i) => (
-                i === index ? {...row, [item]: val} : row
+                i === index ? {...row, [item]: parseFloat(val)} : row
             ))
         })
         //console.log(item);
@@ -60,7 +59,6 @@ export default class Table extends Component {
             return <th key={index}>{myItem}</th>
         });
         const rows = this.props.tableData.map((row, i) => <Row key={i} row={row} tableData={this.state.tableData[i]} dataNum={i} followChanges={this.handleChange}/>);
-
         return (
             <div id="dataSheet" className="table-responsive">
                 <table className="table table-striped">

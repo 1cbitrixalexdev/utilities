@@ -8,7 +8,7 @@ export default [
         current: 2505,
         previous: 2404,
         used() {
-            return (this.current > this.previous && this.previous > 0) ? this.current - this.previous : 0},
+            return (this.current > this.previous) ? this.current - this.previous : 0},
         rowTotal() {
             const prices = this.price.split('~'),
                 firstPrice = prices[0],
@@ -28,7 +28,7 @@ export default [
         current: 748,
         previous: 740,
         used() {
-            return ((this.current > this.previous) && (this.previous > 0)) ? this.current - this.previous : 0
+            return (this.current > this.previous) ? this.current - this.previous : 0
         },
         rowTotal() {
             return ((this.price > 0) && (this.price > 0)) ? (this.price * this.used()).toFixed(2) : 0
@@ -41,7 +41,7 @@ export default [
         current: 1766,
         previous: 1737,
         used() {
-            return (this.current > this.previous && this.previous > 0) ? this.current - this.previous : 0
+            return (this.current > this.previous) ? this.current - this.previous : 0
         },
         rowTotal() {
             return ((this.price > 0) && (this.price > 0)) ? (this.price * this.used()).toFixed(2) : 0
@@ -55,7 +55,7 @@ export default [
         previous: "",
         used: 0.907069,
         rowTotal() {
-            return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0
+            return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0.00
         }
     },
     {

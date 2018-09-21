@@ -8,3 +8,6 @@ table tfoot td:nth-child(2) {
     font-size: 1.25rem;
     font-weight: bold;
 }
+.btn:focus {
+    box-shadow: none;
+}

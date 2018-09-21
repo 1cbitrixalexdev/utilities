@@ -24,14 +24,14 @@ export default class Row extends Component {
                 onChange={e => followChanges(dataNum, 'previous', e.target.value || '')}
                 className="form-control text-right"
             />;
-        const cellUsed = (row.previous === '') ? <input
+        const cellUsed = (typeof row.used === 'number') ? <input
                 type="text"
                 name={`${row.id}Used`}
                 id={`${row.id}Used`}
                 value={tableData.used}
                 onChange={e => followChanges(dataNum, 'used', e.target.value || '')}
                 className="form-control text-right"
-            /> : row.used();
+            /> : tableData.used();
         return (
             <tr>
                 <td>{row.service}</td>

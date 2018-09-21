@@ -12,9 +12,7 @@ class App extends Component {
             isVisible: false,
             tableData: tableData
         };
-
         this.handleClick = this.handleClick.bind(this);
-
     }
 
     handleClick = () => {
@@ -24,13 +22,14 @@ class App extends Component {
     }
 
     render() {
-        const electricityPrice = tableData[0].price.split('~'),
+        /*const electricityPrice = tableData[0].price.split('~'),
             priceElectricityFirst = electricityPrice[0],
-            priceElectricitySecond = electricityPrice[1];
+            priceElectricitySecond = electricityPrice[1];*/
         return (
             <div className="container">
                 <h1>Комунальний чек</h1>
                 <Table tableData={this.state.tableData} tableConfig={tableConfig}/>
+                {/*
                 <div id="changeElectricityTariff" className="row">
                     <h2>Зміна тарифів</h2>
                     <div className="col-md-4 col-lg-3 input-group">
@@ -44,6 +43,7 @@ class App extends Component {
                         </div>
                     </div>
                 </div>
+                */}
             </div>
         );
     }

@@ -33,13 +33,13 @@ export default class Row extends Component {
                 className="form-control text-right"
             /> : tableData.used();
         return (
-            <tr>
-                <td>{row.service}</td>
-                <td title="Клікніть для редагування">{row.price %1 === 0 ? row.price.toFixed(2) : row.price}</td>
-                <td>{cellCurrent}</td>
-                <td>{cellPrevious}</td>
-                <td>{cellUsed}</td>
-                <td>{tableData.rowTotal()}</td>
+            <tr className="d-flex">
+                <td className="col-2">{row.service}</td>
+                <td className="col-2" title="Клікніть для редагування">{row.price %1 === 0 ? row.price.toFixed(2) : row.price}</td>
+                <td className="col-2">{cellCurrent}</td>
+                <td className="col-2">{cellPrevious}</td>
+                <td className="col-2">{cellUsed}</td>
+                <td className="col-2">{tableData.rowTotal()}</td>
             </tr>
         )
     }

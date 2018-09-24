@@ -24,7 +24,7 @@ export default [
     {
         id: "water",
         service: "Водопостачання (хол.)",
-        price: "21.26",
+        price: "24.972",
         current: 748,
         previous: 740,
         used() {
@@ -37,7 +37,7 @@ export default [
     {
         id: "gas",
         service: "Газопостачання",
-        price: "6.96",
+        price: "6.9579",
         current: 1766,
         previous: 1737,
         used() {
@@ -50,7 +50,7 @@ export default [
     {
         id: "heating",
         service: "Опалення",
-        price: "1278.75",
+        price: "1407.20",
         current: "",
         previous: "",
         used: 0.907069,
@@ -61,10 +61,10 @@ export default [
     {
         id: "rent",
         service: "Квартплата",
-        price: "3.143939",
+        price: "3.0966",
         current: "",
         previous: "",
-        used: 46.39,
+        used: 47,
         rowTotal() {
             return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0.00
         }
@@ -72,10 +72,10 @@ export default [
     {
         id: "elevator",
         service: "Ліфт",
-        price: 15.00,
+        price: 0.90,
         current: "",
         previous: "",
-        used: 1,
+        used: 47,
         rowTotal() {
             return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0.00
         }
@@ -83,7 +83,7 @@ export default [
     {
         id: "phone",
         service: "Телефон",
-        price: 12.00,
+        price: 74.00,
         current: "",
         previous: "",
         used: 1,

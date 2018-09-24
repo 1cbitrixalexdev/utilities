@@ -55,14 +55,14 @@ export default class Table extends Component {
     render() {
         const tableHeaders = Object.keys(this.props.tableConfig.tableHeaders).map((key, index) => {
             const myItem = this.props.tableConfig.tableHeaders[key];
-            return <th key={index}>{myItem}</th>
+            return <th className="col-2" key={index}>{myItem}</th>
         });
         const rows = this.props.tableData.map((row, i) => <Row key={i} row={row} tableData={this.state.tableData[i]} dataNum={i} followChanges={this.handleChange}/>);
         return (
             <div id="dataSheet" className="table-responsive">
                 <table className="table table-striped">
                     <thead>
-                    <tr>
+                    <tr className="d-flex">
                         {tableHeaders}
                     </tr>
                     </thead>
@@ -70,9 +70,8 @@ export default class Table extends Component {
                     {rows}
                     </tbody>
                     <tfoot>
-                    <tr>
-                        <td colSpan="5" className="text-right"><b>Всього</b>:</td>
-                        <td>{this.countTotal()}</td>
+                    <tr className="d-flex">
+                        <td className="col-12 text-right"><b>Всього</b>: <span>{this.countTotal()}</span></td>
                     </tr>
                     </tfoot>
                 </table>

@@ -12,7 +12,7 @@ export default class Row extends Component {
                 type="text"
                 name={row.id+'Current'}
                 id={row.id+'Current'}
-                value={tableData.current}
+                value={tableData.current ? tableData.current : 0}
                 onChange={e => followChanges(dataNum, 'current', e.target.value || '')}
                 className="form-control text-right"
             />;
@@ -20,7 +20,7 @@ export default class Row extends Component {
                 type="text"
                 name={row.id+'Previous'}
                 id={row.id+'Previous'}
-                value={tableData.previous}
+                value={tableData.previous ? tableData.previous : 0}
                 onChange={e => followChanges(dataNum, 'previous', e.target.value || '')}
                 className="form-control text-right"
             />;
@@ -28,7 +28,7 @@ export default class Row extends Component {
                 type="text"
                 name={`${row.id}Used`}
                 id={`${row.id}Used`}
-                value={tableData.used}
+                value={tableData.used ? tableData.used : 0}
                 onChange={e => followChanges(dataNum, 'used', e.target.value || '')}
                 className="form-control text-right"
             /> : tableData.used();

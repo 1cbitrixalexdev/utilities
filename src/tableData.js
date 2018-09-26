@@ -4,6 +4,7 @@
 export default [
     {   id: "electricity",
         service: "Електроенергія",
+        units: "кВт.год",
         price: "0.9~1.68",
         current: 2505,
         previous: 2404,
@@ -23,8 +24,9 @@ export default [
     },
     {
         id: "water",
-        service: "Водопостачання (хол.)",
-        price: "24.972",
+        service: "Водопостачання",
+        units: "куб.м",
+        price: 24.972,
         current: 748,
         previous: 740,
         used() {
@@ -37,7 +39,8 @@ export default [
     {
         id: "gas",
         service: "Газопостачання",
-        price: "6.9579",
+        units: "куб.м",
+        price: 6.9579,
         current: 1766,
         previous: 1737,
         used() {
@@ -50,7 +53,8 @@ export default [
     {
         id: "heating",
         service: "Опалення",
-        price: "1407.20",
+        units: "Гкал",
+        price: 1407.20,
         current: "",
         previous: "",
         used: 0.907069,
@@ -62,6 +66,7 @@ export default [
         id: "rent",
         service: "Квартплата",
         price: "3.0966",
+        units: "кв.м",
         current: "",
         previous: "",
         used: 47,
@@ -72,6 +77,7 @@ export default [
     {
         id: "elevator",
         service: "Ліфт",
+        units: "кв.м",
         price: 0.90,
         current: "",
         previous: "",
@@ -83,6 +89,7 @@ export default [
     {
         id: "phone",
         service: "Телефон",
+        units: "міс.",
         price: 74.00,
         current: "",
         previous: "",

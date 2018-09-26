@@ -38,7 +38,7 @@ export default class Row extends Component {
                 <td className="col-2" title="Клікніть для редагування">{row.price %1 === 0 ? row.price.toFixed(2) : row.price}</td>
                 <td className="col-2">{cellCurrent}</td>
                 <td className="col-2">{cellPrevious}</td>
-                <td className="col-2">{cellUsed}</td>
+                <td className="col-2">{cellUsed}<small>{row.units}</small></td>
                 <td className="col-2">{tableData.rowTotal()}</td>
             </tr>
         )

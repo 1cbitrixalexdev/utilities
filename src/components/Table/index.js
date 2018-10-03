@@ -57,7 +57,7 @@ export default class Table extends Component {
             const myItem = this.props.tableConfig.tableHeaders[key];
             return <th className="col-2" key={index}>{myItem}</th>
         });
-        const rows = this.props.tableData.map((row, i) => <Row key={i} row={row} tableData={this.state.tableData[i]} dataNum={i} followChanges={this.handleChange}/>);
+        const rows = this.props.tableData.map((row, i) => <Row key={i} row={row} tableData={this.state.tableData[i]} dataNum={i} followChanges={this.handleChange} edit={this.props.edit} />);
         return (
             <div id="dataSheet" className="table-responsive">
                 <table className="table table-striped">

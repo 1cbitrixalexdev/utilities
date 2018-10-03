@@ -1,6 +1,9 @@
 td:nth-child(n+3){
     text-align: right
 }
+td:nth-child(1) {
+    word-wrap: break-word;
+}
 td:nth-child(2) {
     cursor: pointer
 }

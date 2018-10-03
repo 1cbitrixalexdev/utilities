@@ -10,8 +10,8 @@ h1 {
 h2 {
     text-align: center;
 }
-#changeElectricityTariff {
-    display: none
+.alert-warning {
+    border: 1px solid #856404;
 }
 #footer a {
     color: #6c757d;
@@ -19,4 +19,15 @@ h2 {
 }
 #footer a:hover {
     text-decoration: none;
+}
+@media (max-width: 575px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .form-control {
+        padding: 3px 5px;
+    }
+    #footer {
+        margin-top: 1rem
+    }
 }

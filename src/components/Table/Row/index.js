@@ -7,7 +7,7 @@ import './styles.css';
 export default class Row extends Component {
 
     render() {
-        const {row, followChanges, tableData, dataNum} = this.props;
+        const {row, followChanges, tableData, dataNum, edit} = this.props;
         const cellCurrent = (row.current !== '') && <input
                 type="text"
                 name={row.id+'Current'}
@@ -35,7 +35,7 @@ export default class Row extends Component {
         return (
             <tr className="d-flex">
                 <td className="col-2">{row.service}</td>
-                <td className="col-2" title="Клікніть для редагування">{row.price %1 === 0 ? row.price.toFixed(2) : row.price}</td>
+                <td title="Натисніть, щоб редагувати" onClick={edit} className="col-2">{row.price %1 === 0 ? row.price.toFixed(2) : row.price}</td>
                 <td className="col-2">{cellCurrent}</td>
                 <td className="col-2">{cellPrevious}</td>
                 <td className="col-2">{cellUsed}<small>{row.units}</small></td>

@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import tableData from "../tableData.js";
 import tableConfig from "../tableConfig.js";
 import Table from "./Table/index";
+import Edit from "./Edit/index";
 import PropTypes from "prop-types";
 import "./styles.css";
 
@@ -22,15 +23,12 @@ class App extends Component {
     }
 
     render() {
-        const electricityPrice = tableData[0].price.split('~'),
-            priceElectricityFirst = electricityPrice[0],
-            priceElectricitySecond = electricityPrice[1];
         return (
             <div className="container">
                 <h1>Комунальний чек</h1>
                 <Table tableData={this.state.tableData} tableConfig={tableConfig} edit={this.handleClick}/>
-
-                <div id="changeElectricityTariff" style={this.state.isVisible ? {display: 'block'} : {display: 'none'}}>
+                <Edit isVisible={this.state.isVisible} tableData={this.state.tableData} />
+                {/*<div id="changeElectricityTariff" style={this.state.isVisible ? {display: 'block'} : {display: 'none'}}>
                     <h2>Зміна тарифів</h2>
                     <div className="row">
                         <div className="col-md-4 col-lg-3 input-group">
@@ -50,7 +48,7 @@ class App extends Component {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>*/}
 
                 <div id="footer" className="text-muted small">
                     <p>&copy; &laquo;Комунальний чек&raquo;, версія 1.1 (beta)</p>
@@ -74,4 +72,4 @@ Table.propTypes = {
 
 export default App;
 
-// TODO: показать/скрыть поля для ввода тарифа при клике на тариф
+// TODO:

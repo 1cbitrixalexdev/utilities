@@ -7,6 +7,9 @@ import tableConfig from "../../../tableConfig"
 export default class Price extends Component {
     render() {
         const {disclaimer, price} = this.props;
+        //const inputField = (Array.isArray(price)) ?
+
+
         return (
             <div className="row">
                 <div className="col-md-4 col-lg-3 input-group">

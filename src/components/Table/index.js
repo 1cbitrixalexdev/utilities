@@ -7,7 +7,7 @@ import startData from "../../tableData.js";
 import PropTypes from "prop-types";
 import "./styles.css";
 
-export default class Table extends Component {
+class Table extends Component {
 
     constructor(props) {
         super(props);
@@ -18,6 +18,7 @@ export default class Table extends Component {
         this.handleChange = this.handleChange.bind(this);
         this.resetToDefaults = this.resetToDefaults.bind(this);
         this.clearFields = this.clearFields.bind(this);
+        this.editThis = this.editThis.bind(this);
     }
 
     resetToDefaults = () => {
@@ -44,6 +45,11 @@ export default class Table extends Component {
         //console.log('row number:'+index, 'value new:'+val, this.state.tableData[index].item);
     };
 
+    editThis = (rowNumber) => {
+        console.log('#Row to edit tariff', rowNumber);
+
+    };
+
     countTotal = () => {
         let result = 0;
         for (let i = 0; i < this.state.tableData.length; i++) {
@@ -53,11 +59,12 @@ export default class Table extends Component {
     };
 
     render() {
+        //const rowNumber =
         const tableHeaders = Object.keys(this.props.tableConfig.tableHeaders).map((key, index) => {
             const myItem = this.props.tableConfig.tableHeaders[key];
             return <th className="col-2" key={index}>{myItem}</th>
         });
-        const rows = this.props.tableData.map((row, i) => <Row key={i} row={row} tableData={this.state.tableData[i]} dataNum={i} followChanges={this.handleChange} edit={this.props.edit} />);
+        const rows = this.props.tableData.map((row, i) => <Row key={i} row={row} tableData={this.state.tableData[i]} dataNum={i} followChanges={this.handleChange} editThis={this.props.editNum} />);
         return (
             <div id="dataSheet" className="table-responsive">
                 <table className="table table-striped">
@@ -87,6 +94,8 @@ export default class Table extends Component {
 Row.propTypes = {
     tableData: PropTypes.object.isRequired,
     dataNum: PropTypes.number,
-    followChanges: PropTypes.func.isRequired
+    followChanges: PropTypes.func.isRequired,
+    editThis: PropTypes.func.isRequired
 };
 
+export default Table;

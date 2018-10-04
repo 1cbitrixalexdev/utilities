@@ -2,19 +2,27 @@
  * Created by Stas on 03.10.2018.
  */
 import React, {Component} from "react";
-//import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import Price from './Price/index'
 
-export default class Edit extends Component {
+class Edit extends Component {
     render() {
-        const {isVisible, tableData} = this.props;
-        const electricityPrice = tableData[0].price.split('~');
+        const {tableData, isVisible} = this.props;
+        const passPrice = isVisible === 0 ? tableData[0].price.split('~') : tableData[isVisible];
         return (
-            <div style={isVisible ? {display: 'block'} : {display: 'none'}}>
+            <div style={isVisible >= 0 ? {display: 'block'} : {display: 'none'}}>
                 <h2>Зміна тарифів</h2>
-                <Price disclaimer={0} price={electricityPrice} />
+                <Price disclaimer={isVisible} price={passPrice} />
             </div>
         )
     }
 }
 
+Price.defaultProps = {
+    price: 0
+};
+Price.propTypes = {
+    disclaimer: PropTypes.number.isRequired
+}
+
+export default Edit;

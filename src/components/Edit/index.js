@@ -8,11 +8,11 @@ import Price from './Price/index'
 class Edit extends Component {
     render() {
         const {tableData, isVisible} = this.props;
-        const passPrice = isVisible === 0 ? tableData[0].price.split('~') : tableData[isVisible];
+
         return (
-            <div style={isVisible >= 0 ? {display: 'block'} : {display: 'none'}}>
+            <div id="editArea" style={isVisible >= 0 ? {display: 'block'} : {display: 'none'}}>
                 <h2>Зміна тарифів</h2>
-                <Price disclaimer={isVisible} price={passPrice} />
+                <Price disclaimer={isVisible} price={(isVisible === 0) ? tableData[0].price.split('~') : tableData[isVisible]} />
             </div>
         )
     }
@@ -23,6 +23,6 @@ Price.defaultProps = {
 };
 Price.propTypes = {
     disclaimer: PropTypes.number.isRequired
-}
+};
 
 export default Edit;

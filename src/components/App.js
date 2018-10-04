@@ -19,7 +19,10 @@ class App extends Component {
     handleClick = (num) => {
         this.setState({
             isVisible: num
-        })
+        });
+        setTimeout(function() {
+            window.scrollTo(0, document.body.scrollHeight)
+        }, 100);
     }
 
     render() {

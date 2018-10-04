@@ -11,7 +11,14 @@ h2 {
     text-align: center;
 }
 .alert-warning {
-    border: 1px solid #856404;
+    border: 1px dotted #856404;
+}
+.alert-warning a {
+    color: #856404;
+    text-decoration: underline;
+}
+.alert-warning a:hover {
+    text-decoration: none;
 }
 #footer a {
     color: #6c757d;

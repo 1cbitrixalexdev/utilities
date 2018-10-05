@@ -36,9 +36,11 @@ class Table extends Component {
     }
 
     handleChange = (index, item, val) => {
+        console.log(item);
+        //let setValue = item === 'used' ? val : parseFloat(val);
         this.setState({
             tableData: this.state.tableData.map((row, i) => (
-                i === index ? {...row, [item]: parseFloat(val)} : row
+                i === index ? {...row, [item]: val} : row
             ))
         })
         //console.log(item);

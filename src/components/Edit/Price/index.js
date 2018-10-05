@@ -5,9 +5,9 @@ import React, {Component} from "react";
 import tableConfig from "../../../tableConfig";
 import ReactHtmlParser from 'react-html-parser';
 
-export default class Price extends Component {
+class Price extends Component {
     render() {
-        const {disclaimer, price} = this.props;
+        const {disclaimer, price, tableData, followChange} = this.props;
         let inputField;
         if (Array.isArray(price)) {
             inputField = (
@@ -20,7 +20,7 @@ export default class Price extends Component {
         } else if (typeof price.price !== 'undefined') {
             inputField = (
                 <div className="col-md-4 col-lg-3 input-group">
-                    <input type="text" className="form-control" value={(price.price %1 === 0) ? price.price.toFixed(2) : price.price}/>
+                    <input type="text" className="form-control" value={tableData[disclaimer].price} onChange={e => followChange(disclaimer, e.target.value || '')} />
                 </div>
             )
         } else {
@@ -38,3 +38,5 @@ export default class Price extends Component {
         )
     }
 }
+
+export default Price;

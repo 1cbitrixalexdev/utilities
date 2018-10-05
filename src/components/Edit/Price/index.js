@@ -12,15 +12,31 @@ class Price extends Component {
         if (Array.isArray(price)) {
             inputField = (
                 <div className="col-md-4 col-lg-3 input-group">
-                    <input type="text" className="form-control" value={price[0]}/>
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={price[0]}
+                        maxLength={12}
+                    />
                     <span className="ml-1 mr-1">~</span>
-                    <input type="text" className="form-control" value={price[1]}/>
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={price[1]}
+                        maxLength={12}
+                    />
                 </div>
             )
         } else if (typeof price.price !== 'undefined') {
             inputField = (
                 <div className="col-md-4 col-lg-3 input-group">
-                    <input type="text" className="form-control" value={tableData[disclaimer].price} onChange={e => followChange(disclaimer, e.target.value || '')} />
+                    <input
+                        type="text"
+                        className="form-control"
+                        value={tableData[disclaimer].price}
+                        onChange={e => followChange(disclaimer, e.target.value || '')}
+                        maxLength={12}
+                    />
                 </div>
             )
         } else {

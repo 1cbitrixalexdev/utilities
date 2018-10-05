@@ -36,8 +36,6 @@ class Table extends Component {
     }
 
     handleChange = (index, item, val) => {
-        console.log(item);
-        //let setValue = item === 'used' ? val : parseFloat(val);
         this.setState({
             tableData: this.state.tableData.map((row, i) => (
                 i === index ? {...row, [item]: val} : row
@@ -61,7 +59,6 @@ class Table extends Component {
     };
 
     render() {
-        //const rowNumber =
         const tableHeaders = Object.keys(this.props.tableConfig.tableHeaders).map((key, index) => {
             const myItem = this.props.tableConfig.tableHeaders[key];
             return <th className="col-2" key={index}>{myItem}</th>

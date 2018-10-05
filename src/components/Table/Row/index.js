@@ -5,16 +5,6 @@ import React, {Component} from "react";
 import "./styles.css";
 
 class Row extends Component {
-
-    controlInput(value) {
-        console.log('fixing');
-        if (value % 1 === 0) {
-            return value
-        } else {
-            return value.toFixed(6)
-        }
-    }
-
     render() {
         const {row, followChanges, tableData, dataNum, editThis} = this.props;
         const cellCurrent = (row.current !== '') && <input

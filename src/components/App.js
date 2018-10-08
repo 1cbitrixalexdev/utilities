@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import { connect } from 'react-redux'
-import {setValue} from '../actions/PageActions'
+import {setValue, resetValues, clearValues} from '../actions/PageActions'
 //import tableData from "../tableData.js"
 import tableConfig from "../tableConfig.js"
 import Table from "./Table/index"
@@ -28,7 +28,13 @@ class App extends Component {
         return (
             <div className="container">
                 <h1>Комунальний чек</h1>
-                <Table tableData={this.props.store} tableConfig={tableConfig} editNum={this.handleClick} setValue={this.props.setValueAction} />
+                <Table tableData={this.props.store}
+                       tableConfig={tableConfig}
+                       editNum={this.handleClick}
+                       setValue={this.props.setValueAction}
+                       resetValues={this.props.resetAction}
+                       clearValues={this.props.clearAction}
+                />
                 <Edit tableData={this.props.store} isVisible={this.state.isVisible} />
                 <Footer />
             </div>
@@ -44,7 +50,9 @@ const mapStateToProps = store => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        setValueAction: (index, item, val) => dispatch(setValue(index, item, val))
+        setValueAction: (index, item, val) => dispatch(setValue(index, item, val)),
+        resetAction: () => dispatch(resetValues()),
+        clearAction: () => dispatch(clearValues())
     }
 }
 

@@ -22,17 +22,19 @@ class Table extends Component {
     }
 
     resetToDefaults = () => {
-        this.setState({tableData:this.defaultData});
+        //this.setState({tableData:this.defaultData});
+        this.props.resetValues();
     }
 
     clearFields = () => {
-        let tempArray = [...this.state.tableData];
+        /*let tempArray = [...this.state.tableData];
         tempArray.forEach((item, index) => {
             if (item.current) tempArray[index] = {...tempArray[index], 'current': 0};
             if (item.previous) tempArray[index] = {...tempArray[index], 'previous': 0};
             if (typeof item.used === 'number') tempArray[index] = {...tempArray[index], 'used': 0};
         });
-        this.setState({ tableData: tempArray });
+        this.setState({ tableData: tempArray });*/
+        this.props.clearValues();
     }
 
     handleChange = (index, item, val) => {
@@ -63,7 +65,13 @@ class Table extends Component {
             const myItem = this.props.tableConfig.tableHeaders[key];
             return <th className="col-2" key={index}>{myItem}</th>
         });
-        const rows = this.props.tableData.map((row, i) => <Row key={i} row={row} tableData={this.props.tableData[i]} dataNum={i} followChanges={this.handleChange} editThis={this.props.editNum} />);
+        const rows = this.props.tableData.map((row, i) =>
+            <Row key={i}
+                 //row={row}
+                 tableData={this.props.tableData[i]}
+                 dataNum={i}
+                 followChanges={this.handleChange}
+                 editThis={this.props.editNum} />);
         return (
             <div id="dataSheet" className="table-responsive">
                 <table className="table table-striped">

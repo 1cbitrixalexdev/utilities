@@ -15,13 +15,14 @@ class Edit extends Component {
     }
 
     handleChange = (index, val) => {
-        this.setState({
+        /*this.setState({
             tableData: this.state.tableData.map((row, i) => (
                 i === index ? {...row, 'price': val} : row
             ))
-        });
-        console.log(val);
+        });*/
+        //console.log(val);
         //console.log('row number:'+index, 'value new:'+val, this.state.tableData[index].item);
+        this.props.setValue(index, 'price', val);
     };
 
     render() {
@@ -31,7 +32,7 @@ class Edit extends Component {
         return (
             <div id="editArea" style={isVisible >= 0 ? {display: 'block'} : {display: 'none'}}>
                 <h2>Зміна тарифів</h2>
-                <Price disclaimer={isVisible} price={price} tableData={this.state.tableData} followChange={this.handleChange} />
+                <Price disclaimer={isVisible} price={price} tableData={this.props.tableData} followChange={this.handleChange} />
             </div>
         )
     }

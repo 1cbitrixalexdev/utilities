@@ -38,7 +38,7 @@ class Row extends Component {
             <tr className="d-flex">
                 <td className="col-2">{tableData.service}</td>
                 <td title="Натисніть, щоб редагувати" onClick={e => editThis(dataNum)}
-                    className="col-2">{tableData.price % 1 === 0 ? tableData.price.toFixed(2) : tableData.price}</td>
+                    className="col-2">{/*tableData.price % 1 === 0 ? tableData.price.toFixed(2) : tableData.price*/ tableData.price}</td>
                 <td className="col-2">{cellCurrent}</td>
                 <td className="col-2">{cellPrevious}</td>
                 <td className="col-2">{cellUsed}

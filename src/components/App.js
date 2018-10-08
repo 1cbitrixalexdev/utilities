@@ -35,7 +35,9 @@ class App extends Component {
                        resetValues={this.props.resetAction}
                        clearValues={this.props.clearAction}
                 />
-                <Edit tableData={this.props.store} isVisible={this.state.isVisible} />
+                <Edit tableData={this.props.store}
+                      setValue={this.props.setValueAction}
+                      isVisible={this.state.isVisible} />
                 <Footer />
             </div>
         );

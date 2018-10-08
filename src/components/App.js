@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import { connect } from 'react-redux'
-import tableData from "../tableData.js"
+import {setValue} from '../actions/PageActions'
+//import tableData from "../tableData.js"
 import tableConfig from "../tableConfig.js"
 import Table from "./Table/index"
 import Edit from "./Edit/index"
@@ -11,8 +12,7 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isVisible: -1,
-            tableData: tableData
+            isVisible: -1
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -28,8 +28,8 @@ class App extends Component {
         return (
             <div className="container">
                 <h1>Комунальний чек</h1>
-                <Table tableData={this.props.data} tableConfig={tableConfig} editNum={this.handleClick} />
-                <Edit tableData={this.props.data} isVisible={this.state.isVisible} />
+                <Table tableData={this.props.store} tableConfig={tableConfig} editNum={this.handleClick} setValue={this.props.setValueAction} />
+                <Edit tableData={this.props.store} isVisible={this.state.isVisible} />
                 <Footer />
             </div>
         );
@@ -38,13 +38,20 @@ class App extends Component {
 }
 
 const mapStateToProps = store => {
-    console.log(store)
+    //console.log(store)
+    return {store}
+}
+
+const mapDispatchToProps = dispatch => {
     return {
-        data: store.data,
+        setValueAction: (index, item, val) => dispatch(setValue(index, item, val))
     }
 }
 
-export default connect(mapStateToProps)(App)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(App)
 
 const Footer = () => {
     return (

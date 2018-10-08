@@ -11,14 +11,14 @@ class Table extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
+        /*this.state = {
             tableData: this.props.tableData
-        };
+        };*/
         this.defaultData = startData;
         this.handleChange = this.handleChange.bind(this);
         this.resetToDefaults = this.resetToDefaults.bind(this);
         this.clearFields = this.clearFields.bind(this);
-        this.editThis = this.editThis.bind(this);
+        //this.editThis = this.editThis.bind(this);
     }
 
     resetToDefaults = () => {
@@ -36,24 +36,24 @@ class Table extends Component {
     }
 
     handleChange = (index, item, val) => {
-        this.setState({
+        /*this.setState({
             tableData: this.state.tableData.map((row, i) => (
                 i === index ? {...row, [item]: val} : row
             ))
-        })
+        })*/
+        this.props.setValue(index, item, val);
         //console.log(item);
         //console.log('row number:'+index, 'value new:'+val, this.state.tableData[index].item);
     };
 
-    editThis = (rowNumber) => {
+    /*editThis = (rowNumber) => {
         console.log('#Row to edit tariff', rowNumber);
-
-    };
+    };*/
 
     countTotal = () => {
         let result = 0;
-        for (let i = 0; i < this.state.tableData.length; i++) {
-            result += parseFloat(this.state.tableData[i].rowTotal())
+        for (let i = 0; i < this.props.tableData.length; i++) {
+            result += parseFloat(this.props.tableData[i].rowTotal())
         }
         return result.toFixed(2)
     };
@@ -63,7 +63,7 @@ class Table extends Component {
             const myItem = this.props.tableConfig.tableHeaders[key];
             return <th className="col-2" key={index}>{myItem}</th>
         });
-        const rows = this.props.tableData.map((row, i) => <Row key={i} row={row} tableData={this.state.tableData[i]} dataNum={i} followChanges={this.handleChange} editThis={this.props.editNum} />);
+        const rows = this.props.tableData.map((row, i) => <Row key={i} row={row} tableData={this.props.tableData[i]} dataNum={i} followChanges={this.handleChange} editThis={this.props.editNum} />);
         return (
             <div id="dataSheet" className="table-responsive">
                 <table className="table table-striped">

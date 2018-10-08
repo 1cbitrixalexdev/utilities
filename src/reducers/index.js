@@ -3,10 +3,21 @@
  */
 import tableData from "../tableData.js"
 
-export const initialState = {
-    data: tableData,
-}
+export const initialState = tableData
 
-export function rootReducer(state = initialState) {
-    return state
+export function rootReducer(state = initialState, action = {}) {
+    switch (action.type) {
+        case 'SET_VALUE':
+            const updatedItems = state.map((row, item) => {
+                if (item === action.index) {
+                    return {...row, ...action.payload}
+                }
+
+                return row
+            })
+            return updatedItems
+
+        default:
+            return state
+    }
 }

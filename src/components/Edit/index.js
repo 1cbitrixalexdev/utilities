@@ -8,21 +8,13 @@ import Price from './Price/index'
 class Edit extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            tableData: this.props.tableData
-        };
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange = (index, val) => {
-        /*this.setState({
-            tableData: this.state.tableData.map((row, i) => (
-                i === index ? {...row, 'price': val} : row
-            ))
-        });*/
-        //console.log(val);
-        //console.log('row number:'+index, 'value new:'+val, this.state.tableData[index].item);
-        this.props.setValue(index, 'price', val);
+    handleChange = (index, valFirst, valSecond = 0) => {
+        let tempValue;
+        tempValue = valSecond ? valFirst+'~'+valSecond : valFirst
+        this.props.setValue(index, 'price', tempValue);
     };
 
     render() {

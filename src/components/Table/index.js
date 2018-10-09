@@ -11,46 +11,23 @@ class Table extends Component {
 
     constructor(props) {
         super(props);
-        /*this.state = {
-            tableData: this.props.tableData
-        };*/
         this.defaultData = startData;
         this.handleChange = this.handleChange.bind(this);
         this.resetToDefaults = this.resetToDefaults.bind(this);
         this.clearFields = this.clearFields.bind(this);
-        //this.editThis = this.editThis.bind(this);
     }
 
     resetToDefaults = () => {
-        //this.setState({tableData:this.defaultData});
         this.props.resetValues();
     }
 
     clearFields = () => {
-        /*let tempArray = [...this.state.tableData];
-        tempArray.forEach((item, index) => {
-            if (item.current) tempArray[index] = {...tempArray[index], 'current': 0};
-            if (item.previous) tempArray[index] = {...tempArray[index], 'previous': 0};
-            if (typeof item.used === 'number') tempArray[index] = {...tempArray[index], 'used': 0};
-        });
-        this.setState({ tableData: tempArray });*/
         this.props.clearValues();
     }
 
     handleChange = (index, item, val) => {
-        /*this.setState({
-            tableData: this.state.tableData.map((row, i) => (
-                i === index ? {...row, [item]: val} : row
-            ))
-        })*/
         this.props.setValue(index, item, val);
-        //console.log(item);
-        //console.log('row number:'+index, 'value new:'+val, this.state.tableData[index].item);
     };
-
-    /*editThis = (rowNumber) => {
-        console.log('#Row to edit tariff', rowNumber);
-    };*/
 
     countTotal = () => {
         let result = 0;
@@ -67,7 +44,6 @@ class Table extends Component {
         });
         const rows = this.props.tableData.map((row, i) =>
             <Row key={i}
-                 //row={row}
                  tableData={this.props.tableData[i]}
                  dataNum={i}
                  followChanges={this.handleChange}
@@ -90,8 +66,8 @@ class Table extends Component {
                     </tfoot>
                 </table>
                 <div className="text-right">
-                    <button onClick={this.resetToDefaults} className="btn btn-secondary mr-1">Скинути</button>
-                    <button onClick={this.clearFields} className="btn btn-warning">Очистити</button>
+                    <button onClick={this.resetToDefaults} className="btn btn-secondary mr-1" title="Стерти виправлене, вивести дані для прикладу">Скинути</button>
+                    <button onClick={this.clearFields} className="btn btn-warning" title="Обнулити всі дані крім тарифів">Очистити</button>
                 </div>
             </div>
         );

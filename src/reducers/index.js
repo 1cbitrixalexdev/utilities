@@ -10,10 +10,11 @@ export function rootReducer(state = initialState, action = {}) {
     switch (action.type) {
         case SET_VALUE:
             const updatedItems = state.map((row, item) => {
+                let result = {...row}
                 if (item === action.index) {
-                    return {...row, ...action.payload}
+                    return {...result, ...action.payload}
                 }
-                return row
+                return result
             })
             return updatedItems
 

@@ -16,13 +16,14 @@ class Price extends Component {
                         type="text"
                         className="form-control"
                         value={price[0]}
+                        onChange={e => followChange(disclaimer, e.target.value || '', e.target.nextSibling.value || '')}
                         maxLength={12}
                     />
-                    <span className="ml-1 mr-1">~</span>
                     <input
                         type="text"
-                        className="form-control"
+                        className="form-control text-right"
                         value={price[1]}
+                        onChange={e => followChange(disclaimer, e.target.previousSibling.value || '', e.target.value || '')}
                         maxLength={12}
                     />
                 </div>
@@ -56,3 +57,5 @@ class Price extends Component {
 }
 
 export default Price;
+// TODO: виправити ситуацію, в якій один із тарифів на електроенергію порожній або нульовий
+// TODO: виправити можливість введення тексту та мінусових значень при редагуванні тарифу

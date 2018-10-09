@@ -1,7 +1,6 @@
 import React, {Component} from "react"
 import { connect } from 'react-redux'
 import {setValue, resetValues, clearValues} from '../actions/PageActions'
-//import tableData from "../tableData.js"
 import tableConfig from "../tableConfig.js"
 import Table from "./Table/index"
 import Edit from "./Edit/index"

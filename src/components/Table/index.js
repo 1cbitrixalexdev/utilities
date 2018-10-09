@@ -26,6 +26,7 @@ class Table extends Component {
     }
 
     handleChange = (index, item, val) => {
+        //if (val%1 !== 0) val = val.replace(/[^\d.]/g,'')
         this.props.setValue(index, item, val);
     };
 

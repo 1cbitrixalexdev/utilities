@@ -7,21 +7,17 @@ import "./styles.css";
 class Row extends Component {
     render() {
         const {followChanges, tableData, dataNum, editThis} = this.props;
-        const cellCurrent = (tableData.current !== '') && <input
+        const cellCurrent = (tableData.current !== null) && <input
                 type="text"
-                name={tableData.id + 'Current'}
-                id={tableData.id + 'Current'}
                 value={tableData.current ? tableData.current : 0}
-                onChange={e => followChanges(dataNum, 'current', parseInt(e.target.value,0) || '')}
+                onChange={e => followChanges(dataNum, 'current', e.target.value,0 || '')}
                 className="form-control text-right"
                 maxLength={12}
             />;
-        const cellPrevious = (tableData.current !== '') && <input
+        const cellPrevious = (tableData.previous !== null) && <input
                 type="text"
-                name={tableData.id + 'Previous'}
-                id={tableData.id + 'Previous'}
                 value={tableData.previous ? tableData.previous : 0}
-                onChange={e => followChanges(dataNum, 'previous', parseInt(e.target.value,0) || '')}
+                onChange={e => followChanges(dataNum, 'previous', e.target.value,0 || '')}
                 className="form-control text-right"
                 maxLength={12}
             />;

@@ -11,8 +11,18 @@ class Edit extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange = (index, valFirst, valSecond = 0) => {
+    handleChange = (index, valFirst, valSecond) => {
         let tempValue;
+        if (!valFirst) {
+            valFirst = 0
+        } else {
+            valFirst = valFirst.replace(/[^\d.]/g,'')
+        }
+        if (valSecond) {
+            valSecond = valSecond.replace(/[^\d.]/g,'')
+        } else {
+            valSecond = 0
+        }
         tempValue = valSecond ? valFirst+'~'+valSecond : valFirst
         this.props.setValue(index, 'price', tempValue);
     };

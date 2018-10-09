@@ -2,24 +2,30 @@
  * Created by Stas on 10.09.2018.
  */
 export default [
-    {   id: "electricity",
+    {
+        id: "electricity",
         service: "Електроенергія",
         units: "кВт.год",
         price: "0.9~1.68",
         current: 2505,
         previous: 2404,
         used() {
-            return (this.current > this.previous) ? this.current - this.previous : 0},
+            return (this.current > this.previous) ? this.current - this.previous : 0
+        },
         rowTotal() {
-            const prices = this.price.split('~'),
-                firstPrice = prices[0],
-                secondPrice = prices[1];
+            const prices = this.price.split('~')
+            const firstPrice = prices[0],
+                secondPrice = prices[1]
+
             if (firstPrice > 0 && this.used() <= 100) {
                 return (firstPrice * this.used()).toFixed(2);
             } else if (secondPrice > 0 && this.used() > 100) {
                 const diff = this.used() - 100;
                 return ((firstPrice * 100) + (secondPrice * diff)).toFixed(2);
+            } else {
+                return 0
             }
+
         }
     },
     {

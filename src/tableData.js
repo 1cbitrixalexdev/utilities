@@ -46,7 +46,7 @@ export default [
         id: "gas",
         service: "Газопостачання",
         units: "куб.м",
-        price: 6.9579,
+        price: 8.54892,
         current: 1766,
         previous: 1737,
         used() {

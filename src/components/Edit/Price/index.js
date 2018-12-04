@@ -35,7 +35,7 @@ class Price extends Component {
                         type="text"
                         className="form-control"
                         value={tableData[disclaimer].price ? tableData[disclaimer].price : 0}
-                        onChange={e => followChange(disclaimer, e.target.value)}
+                        onChange={e => followChange(disclaimer, e.target.value.replace(/^0+/, ''))}
                         maxLength={12}
                     />
                 </div>

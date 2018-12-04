@@ -7,26 +7,26 @@ import "./styles.css";
 class Row extends Component {
     render() {
         const {followChanges, tableData, dataNum, editThis} = this.props;
-        const cellCurrent = (tableData.current !== null) && <input
+        const cellCurrent = (!(tableData.current instanceof Function)) ? <input
                 type="text"
                 value={tableData.current ? tableData.current : 0}
-                onChange={e => followChanges(dataNum, 'current', e.target.value,0 || '')}
+                onChange={e => followChanges(dataNum, 'current', e.target.value.replace(/^0+/, ''))}
                 className="form-control text-right"
                 maxLength={12}
-            />;
-        const cellPrevious = (tableData.previous !== null) && <input
+            /> : tableData.current();
+        const cellPrevious = (!(tableData.previous instanceof Function)) ? <input
                 type="text"
                 value={tableData.previous ? tableData.previous : 0}
-                onChange={e => followChanges(dataNum, 'previous', e.target.value,0 || '')}
+                onChange={e => followChanges(dataNum, 'previous', e.target.value.replace(/^0+/, ''))}
                 className="form-control text-right"
                 maxLength={12}
-            />;
+            /> : tableData.previous();
         const cellUsed = (!(tableData.used instanceof Function)) ? <input
             type="text"
             name={`${tableData.id}Used`}
             id={`${tableData.id}Used`}
             value={(tableData.used ) ? tableData.used : 0}
-            onChange={e => followChanges(dataNum, 'used', e.target.value || '')}
+            onChange={e => followChanges(dataNum, 'used', e.target.value.replace(/^0+/, ''))}
             className="form-control text-right"
             maxLength={12}
         /> : tableData.used();

@@ -61,8 +61,8 @@ export default [
         service: "Опалення",
         units: "Гкал",
         price: 1407.20,
-        current: "",
-        previous: "",
+        current: () => null,
+        previous: () => null,
         used: 0.907069,
         rowTotal() {
             return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0.00
@@ -73,8 +73,8 @@ export default [
         service: "Квартплата",
         price: "3.0966",
         units: "кв.м",
-        current: "",
-        previous: "",
+        current: () => null,
+        previous: () => null,
         used: 47,
         rowTotal() {
             return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0.00
@@ -85,8 +85,8 @@ export default [
         service: "Ліфт",
         units: "кв.м",
         price: 0.90,
-        current: "",
-        previous: "",
+        current: () => null,
+        previous: () => null,
         used: 47,
         rowTotal() {
             return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0.00
@@ -97,8 +97,8 @@ export default [
         service: "Телефон",
         units: "міс.",
         price: 74.00,
-        current: "",
-        previous: "",
+        current: () => null,
+        previous: () => null,
         used: 1,
         rowTotal() {
             return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0.00

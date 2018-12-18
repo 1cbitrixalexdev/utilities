@@ -60,7 +60,7 @@ export default [
         id: "heating",
         service: "Опалення",
         units: "Гкал",
-        price: 1407.20,
+        price: 1720.20,
         current: () => null,
         previous: () => null,
         used: 0.907069,

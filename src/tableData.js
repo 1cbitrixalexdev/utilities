@@ -81,6 +81,18 @@ export default [
         }
     },
     {
+        id: "trash",
+        service: "Вивіз сміття",
+        price: "19.33",
+        units: "чол.",
+        current: () => null,
+        previous: () => null,
+        used: 2,
+        rowTotal() {
+            return ((this.used > 0) && (this.price > 0)) ? (this.used * this.price).toFixed(2) : 0.00
+        }
+    },
+    {
         id: "elevator",
         service: "Ліфт",
         units: "кв.м",
